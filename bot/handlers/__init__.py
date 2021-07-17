@@ -1,0 +1,3 @@
+from bot.handlers.message.text_message import text_handlers
+
+bot_handlers = text_handlers # + something else ...
