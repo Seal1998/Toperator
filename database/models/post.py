@@ -9,5 +9,5 @@ class Post(Base):
 
     id = Column(Integer, primary_key=True)
     telegram_id = Column(Integer)
-    channel_id = Column(Integer, ForeignKey('channel.id'))
-    channel = relationship('Channel', back_populates='posts')
+    chat_id = Column(Integer, ForeignKey('chat.id'))
+    chat = relationship('Chat', back_populates='posts')

@@ -9,6 +9,6 @@ class Account(Base):
 
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('user.id'))
-    channel_id = Column(Integer, ForeignKey('channel.id'))
+    chat_id = Column(Integer, ForeignKey('chat.id'))
     user = relationship('User', back_populates='accounts')
-    channel = relationship('Channel', back_populates='accounts')
+    chat = relationship('Chat', back_populates='accounts')

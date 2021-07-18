@@ -14,6 +14,8 @@ class User(Base):
     @classmethod
     def add(cls, name, tid):
         new_user = cls(name=name, telegram_id=tid)
+        db.add(new_user)
+        db.commit()
         return new_user
 
     @classmethod

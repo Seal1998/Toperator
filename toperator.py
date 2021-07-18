@@ -18,6 +18,6 @@ updater = bot.init_updater(
         certificate = './cert.pem',
         private_key = './key.pem')
 
-bot.ignite_updater(updater, '31.202.137.61', '8443')
+bot.ignite_updater(updater, config['network']['listen_address'], config['network']['port'])
 
 print(updater.dispatcher.bot_data)
