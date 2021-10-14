@@ -10,8 +10,7 @@ def process_chats(update, context):
     if len(context.args) == 1:
         if context.args[0] in ('list', 'ls'):
             chats_message.reply_text(messages.database.chat.all_chats_info())
-    chats_message.delete()
 
 info_command_handlers = [
-    CommandHandler('chats', process_chats)
+    CommandHandler(filters=Filters.chat_type.private, command='chats', callback=process_chats)
 ]

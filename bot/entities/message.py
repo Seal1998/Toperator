@@ -12,3 +12,7 @@ class Message:
 
     def reply_text(self, text):
         self.message.reply_text(text)
+
+    def prepare_post(self):
+        self.message.reply_copy(self.chat.tid, self.message.message_id)
+        self.delete()
