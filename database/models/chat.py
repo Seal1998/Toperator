@@ -15,11 +15,11 @@ class Chat(Base):
     posts = relationship('Post', back_populates='chat')
 
     @classmethod
-    def add(cls, name, tid):
+    def add(cls, name, tid, chat_type):
         if cls.get_by_tid(tid):
             return False #if already exists - do nothing
         else:
-            new_chat = cls(name=name, telegram_id=tid)
+            new_chat = cls(name=name, telegram_id=tid, type=chat_type)
             db.add(new_chat)
             db.commit()
             return new_chat
@@ -32,5 +32,13 @@ class Chat(Base):
         else:
             return chat
 
+    @classmethod
+    def get_all(cls):
+        all_chats = db.query(cls).all()
+        if all_chats is None:
+            return False
+        else:
+            return all_chats
+
     def __repr__(self):
-        return self.name
+        return f'{self.telegram_id} - {self.name}'
