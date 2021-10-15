@@ -1,9 +1,8 @@
 from database import models
 
 class Chat:
-    def __init__(self, update, context):
-        self.message = update.message if update.message else update.channel_post
-        self.obj = self.message.chat
+    def __init__(self, update, context, chat):
+        self.obj = chat
         self.type = self.obj.type
         self.tid = self.obj.id
 

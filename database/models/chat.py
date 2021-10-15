@@ -40,5 +40,13 @@ class Chat(Base):
         else:
             return all_chats
 
+    @classmethod
+    def get_name_tid_dict(cls):
+        all_chats = cls.get_all()
+        if not all_chats:
+            return False
+        else:
+            return {c.name:c.telegram_id for c in all_chats}
+
     def __repr__(self):
         return f'{self.telegram_id} - {self.name}'
